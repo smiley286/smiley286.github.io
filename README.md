@@ -1,163 +1,79 @@
-# JOYTOU
+# 码志
 
-#I'm sorry, my English is not so well. If there any mistakes in the document, please understand.
+我的个人博客：<http://mazhuang.org>，欢迎 Star 和 Fork。
 
-*JOYTOU is a blog template built from Bootstrap by Joytou. You can choose to [preview the theme](https://joytou.github.io/) first.*
+## 概览
 
-*JOYTOU是一款由Joytou通过Bootstrap制作的博客模板。您可以先选择[预览主题](https://joytou.github.io/)。*
+<!-- vim-markdown-toc GFM -->
+* [效果预览](#效果预览)
+* [Fork 指南](#fork-指南)
+* [贴心提示](#贴心提示)
+* [经验与思考](#经验与思考)
+* [致谢](#致谢)
 
-================
+<!-- vim-markdown-toc -->
 
-##Usage
-##使用
+## 效果预览
 
-1.Download the template from https://github.com/joytou/joytou.github.io [Demo](https://joytou.github.io)
+**[在线预览 &rarr;](http://mazhuang.org)**
 
-1.从https://github.com/joytou/joytou.github.io 下载模板资源。[Demo](https://joytou.github.io)
+![screenshot home](http://mazhuang.org/assets/images/screenshots/home.png)
 
-2.Change the '_config.yml' to your setting:
+## Fork 指南
 
-2.修改'_config.yml'中的如下配置:
+Fork 本项目之后，还需要做一些事情才能让你的页面「正确」跑起来。
 
-```yml:
-# Resources settings
-source:      .
-layouts:     ./_layouts
-timezone:    +0800
-lang: zh-CN
-      #set the <meta lang="">
-      #设置<meta lang="">
-gems: ['jekyll-paginate', 'jekyll-multiple-languages']
-languages: ['cn', 'en']
-           #list all of your site languages
-           #列出您的网站所有的语言
-language_default: 'en'
-                  #your site default language
-                  #您的网站的默认语言
+1. 正确设置项目名称与分支。
 
-# Site settings
-email: 1540294142@qq.com 
-       #your email 
-       #您的电子邮件
-author: Joytou Wu 
-        #author name 
-        #作者名称
-url: https://joytou.github.io 
-     #the site url 
-     #网址
+   按照 GitHub Pages 的规定，名称为 `username.github.io` 的项目的 master 分支，或者其它名称的项目的 gh-pages 分支可以自动生成 GitHub Pages 页面。
 
-github: https://github.com/joytou/ 
-        #your github url 
-        #您的github网址
-baseurl: "" 
-         # application directory
-         #安装目录
+2. 修改域名。
 
-future: true
-show_drafts: nil
-lsi: true
-published: false
-safe: false
-permalink: /:year/:month/:day/:title/ 
-           #The format of the article's link
-           #文章链接的格式
-paginate: 2
-          #The number of articles per page
-          #每页的文章数量
-markdown: kramdown
-excerpt_separator: '<!-- more -->'
+   如果你需要绑定自己的域名，那么修改 CNAME 文件的内容；如果不需要绑定自己的域名，那么删掉 CNAME 文件。
 
-exclude: ['README.md']
+3. 修改配置。
 
-github_username: joytou 
-                 #your github user name 
-                 #您的github用户名
-owner_name: Joytou 
-            #the owner name 
-            #所有者名称
+   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 title、subtitle 和 Disqus 的用户名等。
 
-# Keywords
-keywords: #the keywords for the meta:<meta name="keywords" content="">
-          #您的网站的关键词：<meta name="keywords" content="">
-          #It has to list like(per one each line): -"keyword"
-          #需按照以下格式列出（每行一个）：-"关键词"
-        - "github"
-        - "bootstrap"
-        - "blog"
-        - "joytou"
-        - "markdown"
-        - "博客"
-        - "个人博客"
-        - "博客模板"
-#Others
-BaiduSiteVerification: "***"
-                       -Your Baidu HTML Tag Verification：baidu-site-verification
-                       -If not, please leave blank.
-                       -您的百度HTML标签验证：baidu-site-verification
-                       -如果没有，请留空白
-```
+   **注意：** 因为 Disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus.username 修改成你自己的。我对该缺陷的记录见 [Issues#2][3]。
 
-3.Setting the site information
+4. 删除我的文章与图片。
 
-3.配置网站信息
+   如下文件夹中除了 template.md 文件外，都可以全部删除，然后添加你自己的内容。
 
-In each '(language code).yml' file, change under information
+   * \_posts 文件夹中是我已发布的博客文章。
+   * \_drafts 文件夹中是我尚未发布的博客文章。
+   * \_wiki 文件夹中是我已发布的 wiki 页面。
+   * images 文件夹中是我的文章和页面里使用的图片。
 
-在各个'(语言代码).yml'文件中，修改以下信息
-```
-name: JOYTOU 
-      #Your site name 
-      #您的网站名称
-subname: 一个热爱折腾、不肯休息的业余程序员！
-         #Your site sub name
-         #您的网站子名称
-description: 此博客模板由Joytou通过Bootstrap创建 
-             #your site's description 
-             #您的网站描述
-about: JOYTOU是由我(Joytou)单独完成的。如果您喜欢此模板，可以对此模板小额资助。 
-       #about your site 
-       #关于您的网站
-```
-4.Write article
+5. 修改「关于」页面。
 
-4.写文章
+   pages/about.md 文件内容对应网站的「关于」页面，里面的内容多为个人相关，将它们替换成你自己的信息，包括 \_data 目录下的 skills.yml 和 social.yml 文件里的数据。
 
-create a empty file in '_posts' and name it like 'year-month-date-title.md',and then write like this:
+## 贴心提示
 
-在'_posts'文件夹创建空白文件，并以下面格式命名：'year-month-date-title.md' (注：title为英文格式，不能为中文)，按以下要求写文章：
-  
-```bash
----
-layout: post
-title:  test
-       #article title 
-       #文章标题
-date:   2015-04-05 08:00:00 +0800
-      #publish date 
-      #发布日期
-nav: post 
-     #don't change this line 
-     #请不要修改这一行
-stickie: true 
-         #Make the article stick to the top if true 
-         #如果为true则文章置顶
-category: official 
-          #the category for the article 
-          #文章的分类
-tags: [log, bootstrap, joytou]
-      #the tags for the article, it should be a array 
-      #文章的标签，必须是数组
----
+1. 排版建议遵照一定的规范，推荐 [中文文案排版指北（简体中文版）][1]。
 
-* content
-{:toc}
+2. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
 
-#Summary content.
-#摘要内容
-<!-- more -->
-#Writting the article here.
-#在这儿写文章
-```
- and so on.
- 
- 完结。
+## 经验与思考
+
+* 简约，尽量每个页面都不展示多余的内容。
+
+* 有时一图抵千言，有时可能只会拖慢网页加载速度。
+
+* 言之有物，不做无痛之呻吟。
+
+* 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
+
+* 杜绝难断句、难理解的长句子，如果不能将其拆分成几个简洁的短句，说明脑中的理解并不清晰。
+
+* 可以学习一下那些高质量的博主，他们的行文，内容组织方式，有什么值得借鉴的地方。
+
+## 致谢
+
+本博客外观基于 [DONGChuan](http://dongchuan.github.io) 修改，感谢！
+
+[1]: https://github.com/mzlogin/chinese-copywriting-guidelines
+[2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
+[3]: https://github.com/mzlogin/mzlogin.github.io/issues/2
