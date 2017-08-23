@@ -2,12 +2,12 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: http://mazhuang.org
+url: https://smiley286.github.io
 date_format: "ordinal"
-title: 码志
-subtitle: "打码改变人生"
-description: "马壮的个人博客"
-keywords: 码志, Zhuang Ma, mzlogin, mazhuang
+title: Ubuntu Kylin
+subtitle: "麒麟博客"
+description: "一个麒麟人的博客"
+keywords: 博客
 favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
@@ -16,12 +16,12 @@ side_bar_repo_limit: 5
 # ---------------- #
 #      Author      #
 # ---------------- #
-author: Zhuang Ma
-organization: zkh360.com
-organization_url: http://www.zkh360.com
-github_username: mzlogin
-location: Wuhan, China
-email: chumpma@gmail.com
+author: He Bing
+organization: kylin
+organization_url: http://www.ubuntukylin.com
+github_username: smiley286
+location: Changsha, China
+email: hebing@kylinos.com
 
 # ---------------- #
 #    Navigation    #
@@ -65,13 +65,13 @@ quiet: false
 excerpt_separator: "\n\n"
 permalink: /:year/:month/:day/:title/
 gems:
-    - jekyll-github-metadata
+#    - jekyll-github-metadata
     - rouge
 #     - jekyll-html-pipeline
     - jekyll-paginate
-    - jekyll-sitemap
+#    - jekyll-sitemap
     - jekyll-feed
-    - jemoji
+#    - jemoji
 #     - jekyll-mentions
 collections:
     wiki:
